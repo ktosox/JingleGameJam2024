@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://2xjxs7aqgbhg"]
+
+[ext_resource type="Script" path="res://experimental/window_to_3d.gd" id="1_3rf8d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vn7ia"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 0.486275, 0.847059)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jrrvb"]
+material = SubResource("StandardMaterial3D_vn7ia")
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8gvv"]
+size = Vector3(0.9, 1.2, 0.9)
+
+[node name="WindowTo3D" type="SubViewportContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -896.0
+offset_bottom = -392.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3rf8d")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(256, 256)
+
+[node name="World" type="Node3D" parent="SubViewport"]
+
+[node name="ObjectHolder" type="Marker3D" parent="SubViewport/World"]
+
+[node name="TestExample" type="MeshInstance3D" parent="SubViewport/World/ObjectHolder"]
+mesh = SubResource("BoxMesh_jrrvb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/World/ObjectHolder"]
+mesh = SubResource("BoxMesh_m8gvv")
+
+[node name="CameraHolder" type="Node3D" parent="SubViewport/World"]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport/World/CameraHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+current = true
+fov = 40.0
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
