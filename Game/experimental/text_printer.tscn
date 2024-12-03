@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds4diggr2b4sj"]
+
+[ext_resource type="Script" path="res://experimental/text_printer.gd" id="1_hfwl4"]
+
+[node name="TextPrinter" type="RichTextLabel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 588.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "hello world"
+script = ExtResource("1_hfwl4")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 7.0
+offset_right = 303.0
+offset_bottom = 38.0
+text = "test button"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
