@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://brmt5b47ldsuf"]
+
+[node name="MainSceneMockUp" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BinChute" type="Polygon2D" parent="."]
+position = Vector2(1153, 667)
+color = Color(0.0238157, 0.295857, 0.353081, 1)
+polygon = PackedVector2Array(-169, -93, -185, 34, 100, 45, 91, -74)
+
+[node name="Book" type="Polygon2D" parent="."]
+position = Vector2(150, 289)
+color = Color(1, 1, 0.623529, 1)
+polygon = PackedVector2Array(-111, -144, -106, 32, 142, 28, 144, -140)
+
+[node name="ConveyorBelt" type="Polygon2D" parent="."]
+position = Vector2(302, 478)
+color = Color(0.462291, 0.462291, 0.462291, 1)
+polygon = PackedVector2Array(440, -92, -212, -107, -8, 88, 625, 88)
+
+[node name="Board" type="Polygon2D" parent="."]
+position = Vector2(846, 99)
+polygon = PackedVector2Array(-89, -72, -86, 235, 401, 249, 406, -85)
+
+[node name="TextBox" type="Polygon2D" parent="."]
+position = Vector2(91, 648)
+color = Color(1, 0.203922, 1, 1)
+polygon = PackedVector2Array(-63, -52, -65, 48, 565, 41, 555, -62)
+
+[node name="Label" type="Label" parent="TextBox"]
+offset_left = -12.0
+offset_top = -15.0
+offset_right = 160.0
+offset_bottom = 8.0
+text = "text / dialog goes here"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 642.0
+offset_right = 895.0
+offset_bottom = 665.0
+text = "control buttons here?"
