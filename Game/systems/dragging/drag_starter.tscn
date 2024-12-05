@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://di0w2uwbatyg7"]
+
+[ext_resource type="Script" path="res://systems/dragging/drag_starter.gd" id="1_ofo82"]
+[ext_resource type="PackedScene" uid="uid://bfnlb33h21lc3" path="res://systems/dragging/drag_preview.tscn" id="2_xrohx"]
+
+[node name="DragStarter" type="ColorRect"]
+offset_left = -80.0
+offset_top = -80.0
+offset_right = 80.0
+offset_bottom = 80.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("1_ofo82")
+preview_scene = ExtResource("2_xrohx")

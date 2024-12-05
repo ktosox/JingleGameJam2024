@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://didut2fwe3r0a"]
+
+[node name="Conveyor" type="Node2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-147, 7)
+color = Color(0.462291, 0.462291, 0.462291, 1)
+polygon = PackedVector2Array(400, -100, -200, -100, 0, 100, 600, 100)

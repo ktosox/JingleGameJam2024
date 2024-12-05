@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce47to8h1ooc7"]
+
+[ext_resource type="Texture2D" uid="uid://crfc214tfg15l" path="res://icon.svg" id="1_1m5mh"]
+[ext_resource type="Script" path="res://parts/notice_board.gd" id="1_piwve"]
+[ext_resource type="Script" path="res://experimental/test_board.gd" id="2_4co4a"]
+
+[node name="NoticeBoard" type="Node2D"]
+script = ExtResource("1_piwve")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0.333333, 0.113725, 1)
+scale = Vector2(4, 3.2)
+texture = ExtResource("1_1m5mh")
+
+[node name="Sticky" type="ColorRect" parent="."]
+offset_left = -270.0
+offset_top = -217.0
+offset_right = 270.0
+offset_bottom = 163.0
+color = Color(1, 1, 1, 0.305882)
+script = ExtResource("2_4co4a")
+
+[node name="TopLeft" type="Marker2D" parent="."]
+position = Vector2(-238, -180)
+
+[node name="BottomRight" type="Marker2D" parent="."]
+position = Vector2(218, 134)

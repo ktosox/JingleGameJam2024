@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://brmt5b47ldsuf"]
+[gd_scene load_steps=3 format=3 uid="uid://brmt5b47ldsuf"]
+
+[ext_resource type="PackedScene" uid="uid://ce47to8h1ooc7" path="res://parts/notice_board.tscn" id="1_xxjle"]
+[ext_resource type="PackedScene" uid="uid://didut2fwe3r0a" path="res://parts/conveyor.tscn" id="2_j7ce8"]
 
 [node name="MainSceneMockUp" type="Control"]
 layout_mode = 3
@@ -17,11 +20,6 @@ polygon = PackedVector2Array(-169, -93, -185, 34, 100, 45, 91, -74)
 position = Vector2(150, 289)
 color = Color(1, 1, 0.623529, 1)
 polygon = PackedVector2Array(-111, -144, -106, 32, 142, 28, 144, -140)
-
-[node name="ConveyorBelt" type="Polygon2D" parent="."]
-position = Vector2(302, 478)
-color = Color(0.462291, 0.462291, 0.462291, 1)
-polygon = PackedVector2Array(440, -92, -212, -107, -8, 88, 625, 88)
 
 [node name="Board" type="Polygon2D" parent="."]
 position = Vector2(846, 99)
@@ -46,3 +44,9 @@ offset_top = 642.0
 offset_right = 895.0
 offset_bottom = 665.0
 text = "control buttons here?"
+
+[node name="NoticeBoard" parent="." instance=ExtResource("1_xxjle")]
+position = Vector2(1010, 216)
+
+[node name="Conveyor" parent="." instance=ExtResource("2_j7ce8")]
+position = Vector2(426, 458)
