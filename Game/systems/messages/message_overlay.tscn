@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://b31gyx3f888uv"]
+
+[ext_resource type="PackedScene" uid="uid://ds4diggr2b4sj" path="res://systems/messages/text_printer.tscn" id="1_58vic"]
+[ext_resource type="Script" path="res://systems/messages/message_overlay.gd" id="1_scvbe"]
+
+[node name="MessageOverlay" type="CanvasLayer"]
+script = ExtResource("1_scvbe")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+visible = false
+offset_left = 87.0
+offset_top = 199.0
+offset_right = 749.0
+offset_bottom = 260.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 18.0
+offset_top = 617.0
+offset_right = 946.0
+offset_bottom = 705.0
+color = Color(0.536402, 0, 0.0937976, 1)
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+custom_minimum_size = Vector2(920, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="TextPrinter" parent="ColorRect/ColorRect" instance=ExtResource("1_58vic")]
+layout_mode = 1
+offset_left = 6.0
+offset_top = 0.0
+offset_right = -4.0
+
+[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]

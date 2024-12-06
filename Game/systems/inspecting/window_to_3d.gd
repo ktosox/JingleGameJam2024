@@ -4,7 +4,7 @@ var mouse_tracked = false
 
 var last_mouse_pos : Vector2
 
-@export var rotation_speed = 1.6
+@export var rotation_speed = 1.2
 
 func _process(delta: float) -> void:
 	if mouse_tracked:
@@ -18,7 +18,8 @@ func _process(delta: float) -> void:
 		pass
 
 func replace_held_object(new_object : Node3D) -> void:
-	$SubViewport/World/ObjectHolder.get_child(0).queue_free()
+	if $SubViewport/World/ObjectHolder.get_child_count() > 0:
+		$SubViewport/World/ObjectHolder.get_child(0).queue_free()
 	$SubViewport/World/ObjectHolder.add_child(new_object)
 	pass
 

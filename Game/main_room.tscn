@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://clw0gbf1aojoi"]
+
+[ext_resource type="Script" path="res://main_room.gd" id="1_sqkoo"]
+[ext_resource type="PackedScene" uid="uid://b31gyx3f888uv" path="res://systems/messages/message_overlay.tscn" id="2_u6pmd"]
+[ext_resource type="PackedScene" uid="uid://didut2fwe3r0a" path="res://parts/conveyor.tscn" id="3_mrdg2"]
+[ext_resource type="PackedScene" uid="uid://ce47to8h1ooc7" path="res://parts/notice_board.tscn" id="4_xxnd5"]
+[ext_resource type="PackedScene" uid="uid://cba3021dkxooh" path="res://systems/items/paper_sheet.tscn" id="5_r07or"]
+[ext_resource type="PackedScene" uid="uid://de2kj7mctywgs" path="res://systems/inspecting/inspect_screen.tscn" id="6_t6ns6"]
+[ext_resource type="PackedScene" uid="uid://bgduvgvjsm02b" path="res://parts/bin_chute.tscn" id="7_6lii0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7q4u2"]
+size = Vector2(200, 1000)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2alb"]
+size = Vector2(1400, 200)
+
+[node name="MainRoom" type="Node2D"]
+script = ExtResource("1_sqkoo")
+
+[node name="MessageOverlay" parent="." instance=ExtResource("2_u6pmd")]
+
+[node name="Conveyor" parent="." instance=ExtResource("3_mrdg2")]
+position = Vector2(415, 456)
+
+[node name="NoticeBoard" parent="." instance=ExtResource("4_xxnd5")]
+position = Vector2(1015, 219)
+
+[node name="BinChute" parent="." instance=ExtResource("7_6lii0")]
+position = Vector2(1114, 604)
+
+[node name="ScreenEdges" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenEdges"]
+position = Vector2(-100, 500)
+shape = SubResource("RectangleShape2D_7q4u2")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ScreenEdges"]
+position = Vector2(1380, 355)
+shape = SubResource("RectangleShape2D_7q4u2")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ScreenEdges"]
+position = Vector2(585, -100)
+shape = SubResource("RectangleShape2D_r2alb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ScreenEdges"]
+position = Vector2(634, 820)
+shape = SubResource("RectangleShape2D_r2alb")
+
+[node name="PaperSheet" parent="." instance=ExtResource("5_r07or")]
+position = Vector2(643, 164)
+
+[node name="InspectScreen" parent="." instance=ExtResource("6_t6ns6")]
+visible = false
+
+[node name="ShowManual" type="Button" parent="."]
+offset_left = 113.0
+offset_top = 206.0
+offset_right = 225.0
+offset_bottom = 237.0
+text = "show manual"
+
+[node name="InspectObject" type="Button" parent="."]
+offset_left = 245.0
+offset_top = 415.0
+offset_right = 353.0
+offset_bottom = 446.0
+text = "inpect object"
+
+[node name="InspectObject2" type="Button" parent="."]
+offset_left = 522.0
+offset_top = 412.0
+offset_right = 630.0
+offset_bottom = 443.0
+text = "inpect object"
+
+[connection signal="pressed" from="ShowManual" to="." method="_on_show_manual_pressed"]
+[connection signal="pressed" from="InspectObject" to="." method="_on_inspect_object_pressed"]
+[connection signal="pressed" from="InspectObject2" to="." method="_on_inspect_object_2_pressed"]

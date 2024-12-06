@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://de2kj7mctywgs"]
+
+[ext_resource type="Script" path="res://systems/inspecting/inspect_screen.gd" id="1_j36ui"]
+[ext_resource type="PackedScene" uid="uid://2xjxs7aqgbhg" path="res://systems/inspecting/window_to_3d.tscn" id="1_ld5g2"]
+[ext_resource type="FontFile" uid="uid://bxuibin4yco" path="res://resources/fonts/kremlin.ttf" id="2_1wnlg"]
+
+[node name="InspectScreen" type="CanvasLayer"]
+script = ExtResource("1_j36ui")
+
+[node name="MouseBlocker" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.517647, 0.517647, 0.517647, 0.741176)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WindowTo3D" parent="CenterContainer" instance=ExtResource("1_ld5g2")]
+layout_mode = 2
+
+[node name="Manual" type="ColorRect" parent="CenterContainer"]
+visible = false
+custom_minimum_size = Vector2(512, 512)
+layout_mode = 2
+color = Color(1, 1, 0.427451, 1)
+
+[node name="Label" type="Label" parent="CenterContainer/Manual"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 114.0
+offset_top = 192.0
+offset_right = 183.0
+offset_bottom = 215.0
+text = "MANUAL"
+
+[node name="Close" type="Button" parent="."]
+offset_left = 905.0
+offset_top = 112.0
+offset_right = 947.0
+offset_bottom = 156.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_1wnlg")
+theme_override_font_sizes/font_size = 32
+text = " X"
+
+[connection signal="pressed" from="Close" to="." method="_on_close_pressed"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bgduvgvjsm02b"]
+
+[ext_resource type="Script" path="res://parts/bin_chute.gd" id="1_ycmfu"]
+[ext_resource type="Script" path="res://parts/burny.gd" id="2_updml"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ut3n0"]
+size = Vector2(300, 180)
+
+[node name="BinChute" type="Area2D"]
+script = ExtResource("1_ycmfu")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(9.14484e-07, 0.499888, 0.501029, 1)
+polygon = PackedVector2Array(-148, -51, -130, 79, 128, 76, 147, -53)
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(8, -1)
+points = PackedVector2Array(-132, -34, -119, 64, 100, 61, 117, -33, -134, -34)
+default_color = Color(0.262932, 0.262932, 0.262932, 1)
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(-19, -14, -13, -2, 14, 0, 21, -11)
+default_color = Color(0.144063, 0.144063, 0.144063, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ut3n0")
+
+[node name="Burny" type="ColorRect" parent="."]
+offset_left = -150.0
+offset_top = -50.0
+offset_right = 150.0
+offset_bottom = 100.0
+color = Color(1, 1, 1, 0)
+script = ExtResource("2_updml")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

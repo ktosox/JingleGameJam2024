@@ -46,7 +46,9 @@ offset_bottom = 665.0
 text = "control buttons here?"
 
 [node name="NoticeBoard" parent="." instance=ExtResource("1_xxjle")]
+visible = false
 position = Vector2(1010, 216)
 
 [node name="Conveyor" parent="." instance=ExtResource("2_j7ce8")]
+visible = false
 position = Vector2(426, 458)

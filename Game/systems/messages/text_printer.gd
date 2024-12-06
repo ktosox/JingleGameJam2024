@@ -1,15 +1,14 @@
 extends RichTextLabel
 
+var text_print_ratio = 43.0
 
 func _ready() -> void:
 	EventBus.connect("message_sent",Callable(self,"print_text"))
 	pass
 
 func print_text(message : String) -> void:
+	$TextAnimator.stop()
 	text = message
+	$TextAnimator.speed_scale = text_print_ratio / message.length()
+	$TextAnimator.play("flat")
 	pass
-
-
-func _on_button_pressed() -> void:
-	EventBus.emit_signal("message_sent","test message")
-	pass # Replace with function body.

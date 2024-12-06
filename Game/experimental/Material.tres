@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://cij6pvnn0eb0k"]
+
+[ext_resource type="Texture2D" uid="uid://spemgk6dyxpt" path="res://experimental/blendy_color.png" id="1_x55gd"]
+
+[resource]
+resource_name = "Material"
+shading_mode = 0
+albedo_texture = ExtResource("1_x55gd")
+refraction_scale = 1.0
+texture_filter = 2
+point_size = 122.5
