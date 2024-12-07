@@ -20,4 +20,6 @@ func drag_done() -> void:
 	visible = true
 	if !sticky:
 		get_parent().freeze = false
+		return
+
 	pass

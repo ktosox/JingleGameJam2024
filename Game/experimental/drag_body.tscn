@@ -8,6 +8,8 @@ size = Vector2(80, 80)
 
 [node name="DragBody" type="RigidBody2D"]
 position = Vector2(494, 175)
+collision_layer = 4
+collision_mask = 6
 freeze = true
 freeze_mode = 1
 

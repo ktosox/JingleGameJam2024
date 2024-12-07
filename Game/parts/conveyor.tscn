@@ -1,11 +1,92 @@
-[gd_scene load_steps=2 format=3 uid="uid://didut2fwe3r0a"]
+[gd_scene load_steps=6 format=3 uid="uid://didut2fwe3r0a"]
 
 [ext_resource type="Script" path="res://parts/conveyor.gd" id="1_8vpk1"]
 
-[node name="Conveyor" type="Node2D"]
+[sub_resource type="Animation" id="Animation_3p2ru"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3x61y"]
+resource_name = "export"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1200, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q61v1"]
+resource_name = "import"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-1200, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rlmu1"]
+_data = {
+"RESET": SubResource("Animation_3p2ru"),
+"export": SubResource("Animation_3x61y"),
+"import": SubResource("Animation_q61v1")
+}
+
+[node name="Conveyor" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_8vpk1")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2(-147, 7)
 color = Color(0.462291, 0.462291, 0.462291, 1)
 polygon = PackedVector2Array(400, -100, -200, -100, 0, 100, 600, 100)
+
+[node name="BoxMover" type="AnimationPlayer" parent="."]
+root_node = NodePath("../ItemBox")
+libraries = {
+"": SubResource("AnimationLibrary_rlmu1")
+}
+
+[node name="ItemBox" type="Node2D" parent="."]
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-200, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(-50, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(100, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPoints"]
+position = Vector2(250, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-344, -91, -146, 105, 443, 106, 249, -93)

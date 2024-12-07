@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c41234qq13po"]
+
+[node name="ThingInterface" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1144.0
+offset_bottom = -689.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+text = "A"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 2
+text = "B"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 2
+text = "C"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+placeholder_text = "34"
+alignment = 1

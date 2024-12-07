@@ -9,6 +9,8 @@
 size = Vector2(128, 180)
 
 [node name="PaperSheet" type="RigidBody2D"]
+collision_layer = 8
+collision_mask = 2
 freeze = true
 freeze_mode = 1
 script = ExtResource("1_n1v3i")
@@ -34,12 +36,6 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_17on1")
 theme_override_font_sizes/font_size = 20
-text = "work hard
-or die  tryfn
-fdsfjlsfjldf
-jflskdjflsdf
-fdsfl;sdfkjsl;fj
-flds;fskfsdfd"
 horizontal_alignment = 1
 vertical_alignment = 1
 

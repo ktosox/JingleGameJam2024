@@ -28,6 +28,13 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="JingleGameJam2024"
 
+[layer_names]
+
+2d_physics/layer_1="DO NOT USE"
+2d_physics/layer_2="Walls"
+2d_physics/layer_3="Objects"
+2d_physics/layer_4="Paper"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

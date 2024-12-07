@@ -8,18 +8,19 @@
 script = ExtResource("1_piwve")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("2_gn5g7")
 
 [node name="Sticky" type="ColorRect" parent="."]
-offset_left = -249.0
-offset_top = -119.0
-offset_right = 251.0
-offset_bottom = 264.0
+offset_left = -227.0
+offset_top = -158.0
+offset_right = 233.0
+offset_bottom = 225.0
 color = Color(1, 1, 1, 0)
 script = ExtResource("2_4co4a")
 
 [node name="TopLeft" type="Marker2D" parent="."]
-position = Vector2(-238, -180)
+position = Vector2(-201, -144)
 
 [node name="BottomRight" type="Marker2D" parent="."]
-position = Vector2(218, 134)
+position = Vector2(194, 135)

@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0yx0e73js2vc"]
+
+[ext_resource type="Script" path="res://systems/items/basic_thing.gd" id="1_qw11n"]
+[ext_resource type="Texture2D" uid="uid://crfc214tfg15l" path="res://icon.svg" id="2_324tk"]
+[ext_resource type="PackedScene" uid="uid://c41234qq13po" path="res://systems/items/thing_interface.tscn" id="3_yvjt0"]
+[ext_resource type="PackedScene" uid="uid://di0w2uwbatyg7" path="res://systems/dragging/drag_starter.tscn" id="4_ttsng"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shy7o"]
+size = Vector2(80, 80)
+
+[node name="BasicThing" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 6
+freeze = true
+freeze_mode = 1
+script = ExtResource("1_qw11n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_shy7o")
+
+[node name="Image" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_324tk")
+
+[node name="ThingInterface" parent="." instance=ExtResource("3_yvjt0")]
+offset_left = -65.0
+offset_top = -133.0
+offset_right = 71.0
+offset_bottom = -102.0
+
+[node name="DragStarter" parent="." instance=ExtResource("4_ttsng")]
+visible = false
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
