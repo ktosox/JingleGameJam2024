@@ -1,0 +1,198 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhelxx70l0ox"]
+
+[ext_resource type="Script" path="res://welcome_screen.gd" id="1_ebhrp"]
+[ext_resource type="PackedScene" uid="uid://dwnmaprhunxww" path="res://intro.tscn" id="2_4avr2"]
+[ext_resource type="FontFile" uid="uid://b2ynavtliyagk" path="res://resources/fonts/Russian.ttf" id="2_586vx"]
+
+[sub_resource type="Animation" id="Animation_fjdwk"]
+resource_name = "center"
+length = 0.5
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tglt7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_letds"]
+resource_name = "up"
+length = 0.8
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(0, -720)]
+}
+
+[sub_resource type="Animation" id="Animation_oslwl"]
+resource_name = "down"
+length = 0.8
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(0, 720)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a44bt"]
+_data = {
+"RESET": SubResource("Animation_tglt7"),
+"center": SubResource("Animation_fjdwk"),
+"down": SubResource("Animation_oslwl"),
+"up": SubResource("Animation_letds")
+}
+
+[node name="WelcomeScreen" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_ebhrp")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="CameraMover" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a44bt")
+}
+
+[node name="Center" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(4.81308e-08, 0.51722, 0.519709, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Center"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="Center/VBoxContainer"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+
+[node name="Title" type="RichTextLabel" parent="Center/VBoxContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.999861, 0.378154, 0.310215, 1)
+theme_override_colors/font_shadow_color = Color(0.552962, 3.97079e-07, 4.81307e-07, 1)
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("2_586vx")
+theme_override_font_sizes/normal_font_size = 128
+bbcode_enabled = true
+text = "[center][shake rate=0.5 level=3 connected=0]TiTle goes here"
+scroll_active = false
+
+[node name="Up" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -720.0
+offset_bottom = -720.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.27451, 1, 1)
+
+[node name="Label" type="Label" parent="Up"]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 478.0
+offset_right = 716.0
+offset_bottom = 501.0
+text = "options and instruction and credits go here"
+
+[node name="Down" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 720.0
+offset_bottom = 720.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.236921, 0.719162, 0.854653, 1)
+
+[node name="Label" type="Label" parent="Down"]
+layout_mode = 0
+offset_left = 395.0
+offset_top = 398.0
+offset_right = 594.0
+offset_bottom = 421.0
+text = "unlocked endings go here"
+
+[node name="GoUp" type="Button" parent="."]
+offset_left = 615.0
+offset_top = 21.0
+offset_right = 645.0
+offset_bottom = 52.0
+text = "UP
+"
+
+[node name="GoDown" type="Button" parent="."]
+offset_left = 597.0
+offset_top = 657.0
+offset_right = 658.0
+offset_bottom = 688.0
+text = "DOWN"
+
+[node name="GoBack" type="Button" parent="."]
+offset_left = 593.0
+offset_top = -413.0
+offset_right = 651.0
+offset_bottom = -382.0
+text = "center"
+
+[node name="GoBack2" type="Button" parent="."]
+offset_left = 612.0
+offset_top = 900.0
+offset_right = 670.0
+offset_bottom = 931.0
+text = "center"
+
+[node name="Intro" parent="." instance=ExtResource("2_4avr2")]
+visible = false
+
+[connection signal="pressed" from="GoUp" to="." method="_on_go_up_pressed"]
+[connection signal="pressed" from="GoDown" to="." method="_on_go_down_pressed"]
+[connection signal="pressed" from="GoBack" to="." method="_on_go_back_pressed"]
+[connection signal="pressed" from="GoBack2" to="." method="_on_go_back_pressed"]
