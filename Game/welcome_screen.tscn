@@ -1,25 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhelxx70l0ox"]
+[gd_scene load_steps=10 format=3 uid="uid://dhelxx70l0ox"]
 
 [ext_resource type="Script" path="res://welcome_screen.gd" id="1_ebhrp"]
 [ext_resource type="PackedScene" uid="uid://dwnmaprhunxww" path="res://intro.tscn" id="2_4avr2"]
 [ext_resource type="FontFile" uid="uid://b2ynavtliyagk" path="res://resources/fonts/Russian.ttf" id="2_586vx"]
-
-[sub_resource type="Animation" id="Animation_fjdwk"]
-resource_name = "center"
-length = 0.5
-capture_included = true
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 2,
-"values": [Vector2(0, 0)]
-}
+[ext_resource type="PackedScene" uid="uid://clw0gbf1aojoi" path="res://main_room.tscn" id="2_whjdm"]
 
 [sub_resource type="Animation" id="Animation_tglt7"]
 length = 0.001
@@ -36,9 +20,9 @@ tracks/0/keys = {
 "values": [Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_letds"]
-resource_name = "up"
-length = 0.8
+[sub_resource type="Animation" id="Animation_fjdwk"]
+resource_name = "center"
+length = 0.5
 capture_included = true
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -47,10 +31,10 @@ tracks/0/path = NodePath("Camera2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(0.5),
 "transitions": PackedFloat32Array(1),
 "update": 2,
-"values": [Vector2(0, -720)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_oslwl"]
@@ -70,6 +54,23 @@ tracks/0/keys = {
 "values": [Vector2(0, 720)]
 }
 
+[sub_resource type="Animation" id="Animation_letds"]
+resource_name = "up"
+length = 0.8
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(0, -720)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a44bt"]
 _data = {
 "RESET": SubResource("Animation_tglt7"),
@@ -81,6 +82,7 @@ _data = {
 [node name="WelcomeScreen" type="CanvasLayer"]
 follow_viewport_enabled = true
 script = ExtResource("1_ebhrp")
+game_scene = ExtResource("2_whjdm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
@@ -123,6 +125,14 @@ theme_override_font_sizes/normal_font_size = 128
 bbcode_enabled = true
 text = "[center][shake rate=0.5 level=3 connected=0]TiTle goes here"
 scroll_active = false
+
+[node name="StartGame" type="Button" parent="Center"]
+layout_mode = 0
+offset_left = 581.0
+offset_top = 392.0
+offset_right = 687.0
+offset_bottom = 423.0
+text = "START GAME"
 
 [node name="Up" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -192,6 +202,7 @@ text = "center"
 [node name="Intro" parent="." instance=ExtResource("2_4avr2")]
 visible = false
 
+[connection signal="pressed" from="Center/StartGame" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="GoUp" to="." method="_on_go_up_pressed"]
 [connection signal="pressed" from="GoDown" to="." method="_on_go_down_pressed"]
 [connection signal="pressed" from="GoBack" to="." method="_on_go_back_pressed"]
