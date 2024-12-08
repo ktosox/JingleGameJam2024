@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://2xjxs7aqgbhg"]
+[gd_scene load_steps=3 format=3 uid="uid://2xjxs7aqgbhg"]
 
 [ext_resource type="Script" path="res://systems/inspecting/window_to_3d.gd" id="1_3rf8d"]
+[ext_resource type="PackedScene" uid="uid://caou8l1e3gulx" path="res://systems/items/3D/tea_box.tscn" id="2_lb28i"]
 
 [node name="WindowTo3D" type="SubViewportContainer"]
 anchors_preset = 15
@@ -19,6 +20,8 @@ render_target_update_mode = 4
 [node name="World" type="Node3D" parent="SubViewport"]
 
 [node name="ObjectHolder" type="Marker3D" parent="SubViewport/World"]
+
+[node name="TeaBox" parent="SubViewport/World/ObjectHolder" instance=ExtResource("2_lb28i")]
 
 [node name="CameraHolder" type="Node3D" parent="SubViewport/World"]
 

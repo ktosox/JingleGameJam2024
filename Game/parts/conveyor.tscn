@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://didut2fwe3r0a"]
+[gd_scene load_steps=8 format=3 uid="uid://didut2fwe3r0a"]
 
 [ext_resource type="Script" path="res://parts/conveyor.gd" id="1_8vpk1"]
+[ext_resource type="Texture2D" uid="uid://mxmh8pfpyd1c" path="res://parts/conveyor_texture.png" id="2_uj06j"]
+[ext_resource type="Texture2D" uid="uid://dvt064jdph8fa" path="res://parts/conveyor_wheel_texture.png" id="3_hovye"]
 
 [sub_resource type="Animation" id="Animation_3p2ru"]
 length = 0.001
@@ -16,6 +18,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector2(0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Texture:texture_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 100)]
+}
 
 [sub_resource type="Animation" id="Animation_3x61y"]
 resource_name = "export"
@@ -28,9 +42,21 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2),
 "update": 0,
 "values": [Vector2(1200, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Texture:texture_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(1280, 100)]
 }
 
 [sub_resource type="Animation" id="Animation_q61v1"]
@@ -44,9 +70,21 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(0.5, 2),
 "update": 0,
 "values": [Vector2(-1200, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Texture:texture_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.5, 2),
+"update": 0,
+"values": [Vector2(0, 100), Vector2(-1280, 100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rlmu1"]
@@ -61,10 +99,13 @@ collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_8vpk1")
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(-147, 7)
+[node name="Texture" type="Polygon2D" parent="."]
+texture_repeat = 2
+position = Vector2(100, 0)
 color = Color(0.462291, 0.462291, 0.462291, 1)
-polygon = PackedVector2Array(400, -100, -200, -100, 0, 100, 600, 100)
+texture = ExtResource("2_uj06j")
+texture_offset = Vector2(0, 100)
+polygon = PackedVector2Array(800, -100, -800, -100, -800, 100, 800, 100)
 
 [node name="BoxMover" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ItemBox")
@@ -90,3 +131,53 @@ position = Vector2(250, 0)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-344, -91, -146, 105, 443, 106, 249, -93)
+
+[node name="WheelSection" type="Node2D" parent="."]
+position = Vector2(0, 137)
+
+[node name="Wheel1" type="Sprite2D" parent="WheelSection"]
+texture = ExtResource("3_hovye")
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)
+
+[node name="Wheel2" type="Sprite2D" parent="WheelSection"]
+position = Vector2(120, 0)
+texture = ExtResource("3_hovye")
+region_enabled = true
+region_rect = Rect2(100, 0, 100, 100)
+
+[node name="Wheel3" type="Sprite2D" parent="WheelSection"]
+position = Vector2(240, 0)
+texture = ExtResource("3_hovye")
+region_enabled = true
+region_rect = Rect2(200, 0, 100, 100)
+
+[node name="Wheel4" type="Sprite2D" parent="WheelSection"]
+position = Vector2(360, 0)
+texture = ExtResource("3_hovye")
+region_enabled = true
+region_rect = Rect2(300, 0, 100, 100)
+
+[node name="Wheel6" type="Sprite2D" parent="WheelSection"]
+position = Vector2(480, 0)
+texture = ExtResource("3_hovye")
+region_enabled = true
+region_rect = Rect2(400, 0, 100, 100)
+
+[node name="Wheel7" type="Sprite2D" parent="WheelSection"]
+position = Vector2(-360, 0)
+texture = ExtResource("3_hovye")
+region_enabled = true
+region_rect = Rect2(500, 0, 100, 100)
+
+[node name="Wheel8" type="Sprite2D" parent="WheelSection"]
+position = Vector2(-240, 0)
+texture = ExtResource("3_hovye")
+region_enabled = true
+region_rect = Rect2(600, 0, 100, 100)
+
+[node name="Wheel9" type="Sprite2D" parent="WheelSection"]
+position = Vector2(-120, 0)
+texture = ExtResource("3_hovye")
+region_enabled = true
+region_rect = Rect2(700, 0, 100, 100)

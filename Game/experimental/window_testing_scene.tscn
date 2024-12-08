@@ -14,10 +14,10 @@ script = ExtResource("1_nd8up")
 
 [node name="WindowTo3D" parent="." instance=ExtResource("1_gxdtj")]
 layout_mode = 1
-offset_left = 87.0
-offset_top = 76.0
-offset_right = -809.0
-offset_bottom = -316.0
+offset_left = 26.0
+offset_top = 21.0
+offset_right = -742.0
+offset_bottom = -187.0
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0

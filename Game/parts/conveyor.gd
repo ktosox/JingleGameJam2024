@@ -2,9 +2,9 @@ extends Area2D
 
 var thing_scene = preload("res://systems/items/basic_thing.tscn")
 
-@export var start_animation = "export"
+@export var start_animation = "import"
 
-@export var end_animation = "import"
+@export var end_animation = "export" 
 
 func spawn_item(data : ItemData ) -> Node2D: # creates and returns a new item using inforamtion in data
 	var new_item = thing_scene.instantiate()

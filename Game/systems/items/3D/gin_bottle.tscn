@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=3 uid="uid://djttitwcyt0kh"]
+
+[ext_resource type="FontFile" uid="uid://bxuibin4yco" path="res://resources/fonts/kremlin.ttf" id="1_pit3i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gab8"]
+shading_mode = 0
+albedo_color = Color(0.0909633, 0.467881, 5.77569e-07, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7husl"]
+material = SubResource("StandardMaterial3D_7gab8")
+top_radius = 0.135
+bottom_radius = 0.165
+height = 0.37
+radial_segments = 16
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_m04re"]
+material = SubResource("StandardMaterial3D_7gab8")
+radius = 0.145
+height = 0.41
+radial_segments = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p2out"]
+shading_mode = 0
+albedo_color = Color(0.739655, 0.495954, 0.263756, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_uhk3i"]
+material = SubResource("StandardMaterial3D_p2out")
+top_radius = 0.055
+bottom_radius = 0.015
+height = 0.23
+radial_segments = 16
+
+[node name="GinBottle" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.26269, 0, 0, 0, 1.26269, 0, 0, 0, 1.26269, 0, -0.0508818, 0)
+mesh = SubResource("CylinderMesh_7husl")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.26269, 0, 0, 0, 1.26269, 0, 0, 0, 1.26269, 0, 0.218444, 0)
+mesh = SubResource("CapsuleMesh_m04re")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.26269, 0, 0, 0, 1.26269, 0, 0, 0, 1.26269, 0, 0.413533, 0)
+mesh = SubResource("CylinderMesh_uhk3i")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.19311, 0.0979042, 0)
+modulate = Color(0, 0, 0, 1)
+text = "GIN"
+font = ExtResource("1_pit3i")
+font_size = 48
+outline_size = 0
