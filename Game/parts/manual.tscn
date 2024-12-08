@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dua40xb1c0kme"]
+
+[node name="Manual" type="Button"]
+text = "open manual"
