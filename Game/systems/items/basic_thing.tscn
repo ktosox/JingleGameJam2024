@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://di0w2uwbatyg7" path="res://systems/dragging/drag_starter.tscn" id="4_ttsng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shy7o"]
-size = Vector2(80, 80)
+size = Vector2(120, 120)
 
 [node name="BasicThing" type="RigidBody2D"]
 collision_layer = 4
@@ -15,12 +15,13 @@ freeze = true
 freeze_mode = 1
 script = ExtResource("1_qw11n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_shy7o")
-
 [node name="Image" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_324tk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_shy7o")
 
 [node name="ThingInterface" parent="." instance=ExtResource("3_yvjt0")]
 offset_left = -65.0
@@ -28,7 +29,7 @@ offset_top = -133.0
 offset_right = 71.0
 offset_bottom = -102.0
 
-[node name="DragStarter" parent="." instance=ExtResource("4_ttsng")]
+[node name="DragStarter" parent="." groups=["Thing"] instance=ExtResource("4_ttsng")]
 visible = false
 offset_left = -90.0
 offset_top = -90.0

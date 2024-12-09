@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://clw0gbf1aojoi"]
+[gd_scene load_steps=12 format=3 uid="uid://clw0gbf1aojoi"]
 
 [ext_resource type="Script" path="res://main_room.gd" id="1_sqkoo"]
 [ext_resource type="PackedScene" uid="uid://b31gyx3f888uv" path="res://systems/messages/message_overlay.tscn" id="2_u6pmd"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bgduvgvjsm02b" path="res://parts/bin_chute.tscn" id="7_6lii0"]
 [ext_resource type="PackedScene" uid="uid://cba3021dkxooh" path="res://systems/items/paper_sheet.tscn" id="7_e0ytq"]
 [ext_resource type="PackedScene" uid="uid://dua40xb1c0kme" path="res://parts/manual.tscn" id="8_nukaf"]
+[ext_resource type="PackedScene" uid="uid://21ydfq14vici" path="res://parts/inspector.tscn" id="9_yestj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7q4u2"]
 size = Vector2(200, 1000)
@@ -46,7 +47,7 @@ position = Vector2(585, -100)
 shape = SubResource("RectangleShape2D_r2alb")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="ScreenEdges"]
-position = Vector2(258, 608)
+position = Vector2(251, 629)
 shape = SubResource("RectangleShape2D_r2alb")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="ScreenEdges"]
@@ -64,10 +65,10 @@ offset_bottom = 161.0
 text = "spawn 3 basic things"
 
 [node name="End" type="Button" parent="."]
-offset_left = 512.0
-offset_top = 174.0
-offset_right = 550.0
-offset_bottom = 205.0
+offset_left = 96.0
+offset_top = 261.0
+offset_right = 134.0
+offset_bottom = 292.0
 text = "End"
 
 [node name="Start" type="Button" parent="."]
@@ -85,6 +86,9 @@ offset_left = 64.0
 offset_top = 88.0
 offset_right = 174.0
 offset_bottom = 119.0
+
+[node name="Inspector" parent="." instance=ExtResource("9_yestj")]
+position = Vector2(568, 197)
 
 [connection signal="pressed" from="TestItemSpawn" to="." method="_on_test_item_spawn_pressed"]
 [connection signal="pressed" from="End" to="." method="_on_end_pressed"]
