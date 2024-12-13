@@ -12,14 +12,6 @@ func _process(delta: float) -> void:
 
 
 
-#func _on_inspect_object_pressed() -> void:
-	#$InspectScreen.show_object(load("res://experimental/test_ball.glb").instantiate())
-	#pass # Replace with function body.
-#
-#
-#func _on_inspect_object_2_pressed() -> void:
-	#$InspectScreen.show_object(load("res://experimental/test_cube.glb").instantiate())
-	#pass # Replace with function body.
 
 
 func _on_test_item_spawn_pressed() -> void:
@@ -43,4 +35,9 @@ func _on_start_pressed() -> void:
 
 func _on_manual_pressed() -> void:
 	$InspectScreen.show_manual()
+	pass # Replace with function body.
+
+
+func _on_test_add_paper_pressed() -> void:
+	$NoticeBoard.add_notice("Hello World")
 	pass # Replace with function body.

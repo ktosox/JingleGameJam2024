@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3o0awo0dujfj"]
+
+[ext_resource type="Texture2D" uid="uid://dvt064jdph8fa" path="res://parts/conveyor_wheel_texture.png" id="1_fvmul"]
+
+[sub_resource type="Animation" id="Animation_vbibs"]
+resource_name = "left"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 12.5664]
+}
+
+[sub_resource type="Animation" id="Animation_smuik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_htjap"]
+resource_name = "right"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, -12.5664]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4fjls"]
+_data = {
+"RESET": SubResource("Animation_smuik"),
+"left": SubResource("Animation_vbibs"),
+"right": SubResource("Animation_htjap")
+}
+
+[node name="Wheel" type="Sprite2D"]
+texture = ExtResource("1_fvmul")
+region_enabled = true
+region_rect = Rect2(0, 0, 100, 100)
+
+[node name="Spinner" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_4fjls")
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clw0gbf1aojoi"]
+[gd_scene load_steps=11 format=3 uid="uid://clw0gbf1aojoi"]
 
 [ext_resource type="Script" path="res://main_room.gd" id="1_sqkoo"]
 [ext_resource type="PackedScene" uid="uid://b31gyx3f888uv" path="res://systems/messages/message_overlay.tscn" id="2_u6pmd"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ce47to8h1ooc7" path="res://parts/notice_board.tscn" id="4_xxnd5"]
 [ext_resource type="PackedScene" uid="uid://de2kj7mctywgs" path="res://systems/inspecting/inspect_screen.tscn" id="6_t6ns6"]
 [ext_resource type="PackedScene" uid="uid://bgduvgvjsm02b" path="res://parts/bin_chute.tscn" id="7_6lii0"]
-[ext_resource type="PackedScene" uid="uid://cba3021dkxooh" path="res://systems/items/paper_sheet.tscn" id="7_e0ytq"]
 [ext_resource type="PackedScene" uid="uid://dua40xb1c0kme" path="res://parts/manual.tscn" id="8_nukaf"]
 [ext_resource type="PackedScene" uid="uid://21ydfq14vici" path="res://parts/inspector.tscn" id="9_yestj"]
 
@@ -78,9 +77,6 @@ offset_right = 158.0
 offset_bottom = 189.0
 text = "Start"
 
-[node name="PaperSheet" parent="." instance=ExtResource("7_e0ytq")]
-position = Vector2(916, 151)
-
 [node name="Manual" parent="." instance=ExtResource("8_nukaf")]
 offset_left = 64.0
 offset_top = 88.0
@@ -90,7 +86,15 @@ offset_bottom = 119.0
 [node name="Inspector" parent="." instance=ExtResource("9_yestj")]
 position = Vector2(568, 197)
 
+[node name="TestAddPaper" type="Button" parent="."]
+offset_left = 679.0
+offset_top = 19.0
+offset_right = 766.0
+offset_bottom = 50.0
+text = "add paper"
+
 [connection signal="pressed" from="TestItemSpawn" to="." method="_on_test_item_spawn_pressed"]
 [connection signal="pressed" from="End" to="." method="_on_end_pressed"]
 [connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Manual" to="." method="_on_manual_pressed"]
+[connection signal="pressed" from="TestAddPaper" to="." method="_on_test_add_paper_pressed"]

@@ -1,8 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://ce47to8h1ooc7"]
+[gd_scene load_steps=8 format=3 uid="uid://ce47to8h1ooc7"]
 
 [ext_resource type="Script" path="res://parts/notice_board.gd" id="1_piwve"]
 [ext_resource type="Script" path="res://parts/sticky.gd" id="2_4co4a"]
 [ext_resource type="Texture2D" uid="uid://oumhffsh3qrq" path="res://parts/notice_board.png" id="2_gn5g7"]
+
+[sub_resource type="Animation" id="Animation_3husb"]
+resource_name = "place_paper"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.176777, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-600, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nnmv1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cu5rv"]
+resource_name = "remove_hand"
+length = 0.5
+capture_included = true
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 2,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dd7mo"]
+_data = {
+"RESET": SubResource("Animation_nnmv1"),
+"place_paper": SubResource("Animation_3husb"),
+"remove_hand": SubResource("Animation_cu5rv")
+}
 
 [node name="NoticeBoard" type="Node2D"]
 script = ExtResource("1_piwve")
@@ -20,7 +75,25 @@ color = Color(1, 1, 1, 0)
 script = ExtResource("2_4co4a")
 
 [node name="TopLeft" type="Marker2D" parent="."]
-position = Vector2(-201, -144)
+position = Vector2(362, -141)
 
 [node name="BottomRight" type="Marker2D" parent="."]
-position = Vector2(194, 135)
+position = Vector2(700, 135)
+
+[node name="PaperPlacer" type="Node2D" parent="."]
+position = Vector2(379, -130)
+
+[node name="HandMover" type="AnimationPlayer" parent="PaperPlacer"]
+root_node = NodePath("../Arm")
+libraries = {
+"": SubResource("AnimationLibrary_dd7mo")
+}
+
+[node name="Arm" type="Line2D" parent="PaperPlacer"]
+points = PackedVector2Array(568, 5, 111, 0)
+width = 40.0
+default_color = Color(0.667552, 0.202538, 0, 1)
+
+[node name="Polygon2D" type="Polygon2D" parent="PaperPlacer/Arm"]
+color = Color(0.92549, 0.682353, 0.4, 1)
+polygon = PackedVector2Array(172, 18, 14, 93, -4, 71, 113, 19, -20, 26, -20, 1, 92, -10, -12, -36, -1, -64, 172, -19)

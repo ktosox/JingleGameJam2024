@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://didut2fwe3r0a"]
+[gd_scene load_steps=10 format=3 uid="uid://didut2fwe3r0a"]
 
 [ext_resource type="Script" path="res://parts/conveyor.gd" id="1_8vpk1"]
 [ext_resource type="Texture2D" uid="uid://dec1b8uhrj25a" path="res://parts/conveyor_belt_texture.png" id="2_ptw07"]
-[ext_resource type="Texture2D" uid="uid://dvt064jdph8fa" path="res://parts/conveyor_wheel_texture.png" id="3_hovye"]
+[ext_resource type="Script" path="res://parts/wheel_section.gd" id="3_pqh6o"]
+[ext_resource type="PackedScene" uid="uid://b3o0awo0dujfj" path="res://parts/conveyor_wheel.tscn" id="3_scj4w"]
 
 [sub_resource type="Animation" id="Animation_3p2ru"]
 length = 0.001
@@ -138,50 +139,34 @@ position = Vector2(250, 0)
 
 [node name="WheelSection" type="Node2D" parent="."]
 position = Vector2(0, 137)
+script = ExtResource("3_pqh6o")
 
-[node name="Wheel1" type="Sprite2D" parent="WheelSection"]
-texture = ExtResource("3_hovye")
-region_enabled = true
-region_rect = Rect2(0, 0, 100, 100)
+[node name="Wheel1" parent="WheelSection" instance=ExtResource("3_scj4w")]
 
-[node name="Wheel2" type="Sprite2D" parent="WheelSection"]
+[node name="Wheel2" parent="WheelSection" instance=ExtResource("3_scj4w")]
 position = Vector2(120, 0)
-texture = ExtResource("3_hovye")
-region_enabled = true
 region_rect = Rect2(100, 0, 100, 100)
 
-[node name="Wheel3" type="Sprite2D" parent="WheelSection"]
+[node name="Wheel3" parent="WheelSection" instance=ExtResource("3_scj4w")]
 position = Vector2(240, 0)
-texture = ExtResource("3_hovye")
-region_enabled = true
 region_rect = Rect2(200, 0, 100, 100)
 
-[node name="Wheel4" type="Sprite2D" parent="WheelSection"]
+[node name="Wheel4" parent="WheelSection" instance=ExtResource("3_scj4w")]
 position = Vector2(360, 0)
-texture = ExtResource("3_hovye")
-region_enabled = true
 region_rect = Rect2(300, 0, 100, 100)
 
-[node name="Wheel6" type="Sprite2D" parent="WheelSection"]
-position = Vector2(480, 0)
-texture = ExtResource("3_hovye")
-region_enabled = true
+[node name="Wheel5" parent="WheelSection" instance=ExtResource("3_scj4w")]
+position = Vector2(-120, 0)
 region_rect = Rect2(400, 0, 100, 100)
 
-[node name="Wheel7" type="Sprite2D" parent="WheelSection"]
-position = Vector2(-360, 0)
-texture = ExtResource("3_hovye")
-region_enabled = true
+[node name="Wheel6" parent="WheelSection" instance=ExtResource("3_scj4w")]
+position = Vector2(-240, 0)
 region_rect = Rect2(500, 0, 100, 100)
 
-[node name="Wheel8" type="Sprite2D" parent="WheelSection"]
-position = Vector2(-240, 0)
-texture = ExtResource("3_hovye")
-region_enabled = true
+[node name="Wheel7" parent="WheelSection" instance=ExtResource("3_scj4w")]
+position = Vector2(-360, 0)
 region_rect = Rect2(600, 0, 100, 100)
 
-[node name="Wheel9" type="Sprite2D" parent="WheelSection"]
-position = Vector2(-120, 0)
-texture = ExtResource("3_hovye")
-region_enabled = true
+[node name="Wheel8" parent="WheelSection" instance=ExtResource("3_scj4w")]
+position = Vector2(480, 0)
 region_rect = Rect2(700, 0, 100, 100)
