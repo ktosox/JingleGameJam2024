@@ -1,14 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://21ydfq14vici"]
+[gd_scene load_steps=4 format=3 uid="uid://21ydfq14vici"]
 
 [ext_resource type="Script" path="res://parts/sticky.gd" id="1_bvl4l"]
+[ext_resource type="Script" path="res://parts/inspector.gd" id="1_pbtdb"]
 
-[node name="Inspector" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7nnfj"]
+size = Vector2(200, 200)
+
+[node name="Inspector" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_pbtdb")
 
 [node name="Sticky" type="ColorRect" parent="."]
-offset_left = -120.0
-offset_top = -120.0
-offset_right = 120.0
-offset_bottom = 120.0
+offset_left = -90.0
+offset_top = -90.0
+offset_right = 90.0
+offset_bottom = 90.0
 color = Color(1, 1, 1, 0.27451)
 script = ExtResource("1_bvl4l")
 sticks_to_group = "Thing"
+
+[node name="InspectionButton" type="Button" parent="."]
+offset_left = 129.0
+offset_top = -120.0
+offset_right = 241.0
+offset_bottom = -89.0
+text = "Inspect Thing"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7nnfj")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -118.0
+offset_top = 132.0
+offset_right = -78.0
+offset_bottom = 155.0
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="item_placed" from="Sticky" to="." method="_on_sticky_item_placed"]
+[connection signal="pressed" from="InspectionButton" to="." method="_on_inspection_button_pressed"]
