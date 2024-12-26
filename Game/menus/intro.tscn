@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwnmaprhunxww"]
 
-[ext_resource type="Script" path="res://intro.gd" id="1_4wqgf"]
+[ext_resource type="Script" path="res://menus/intro.gd" id="1_4wqgf"]
 
 [node name="Intro" type="ColorRect"]
 anchors_preset = 15

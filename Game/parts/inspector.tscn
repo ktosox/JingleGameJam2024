@@ -25,6 +25,7 @@ offset_left = 129.0
 offset_top = -120.0
 offset_right = 241.0
 offset_bottom = -89.0
+disabled = true
 text = "Inspect Thing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

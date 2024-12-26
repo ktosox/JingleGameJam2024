@@ -53,6 +53,9 @@ shape = SubResource("RectangleShape2D_r2alb")
 position = Vector2(927, 769)
 shape = SubResource("RectangleShape2D_r2alb")
 
+[node name="Inspector" parent="." instance=ExtResource("9_yestj")]
+position = Vector2(568, 197)
+
 [node name="InspectScreen" parent="." instance=ExtResource("6_t6ns6")]
 visible = false
 
@@ -82,9 +85,6 @@ offset_left = 64.0
 offset_top = 88.0
 offset_right = 174.0
 offset_bottom = 119.0
-
-[node name="Inspector" parent="." instance=ExtResource("9_yestj")]
-position = Vector2(568, 197)
 
 [node name="TestAddPaper" type="Button" parent="."]
 offset_left = 679.0

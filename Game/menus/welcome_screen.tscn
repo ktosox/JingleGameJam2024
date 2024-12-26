@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhelxx70l0ox"]
+[gd_scene load_steps=11 format=3 uid="uid://dhelxx70l0ox"]
 
-[ext_resource type="Script" path="res://welcome_screen.gd" id="1_ebhrp"]
-[ext_resource type="PackedScene" uid="uid://dwnmaprhunxww" path="res://intro.tscn" id="2_4avr2"]
+[ext_resource type="Script" path="res://menus/welcome_screen.gd" id="1_ebhrp"]
+[ext_resource type="PackedScene" uid="uid://dwnmaprhunxww" path="res://menus/intro.tscn" id="2_4avr2"]
 [ext_resource type="FontFile" uid="uid://b2ynavtliyagk" path="res://resources/fonts/Russian.ttf" id="2_586vx"]
 [ext_resource type="PackedScene" uid="uid://clw0gbf1aojoi" path="res://main_room.tscn" id="2_whjdm"]
+[ext_resource type="PackedScene" uid="uid://dmi14s420manb" path="res://menus/shower_of_endings.tscn" id="4_k883l"]
 
 [sub_resource type="Animation" id="Animation_tglt7"]
 length = 0.001
@@ -162,13 +163,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.236921, 0.719162, 0.854653, 1)
 
-[node name="Label" type="Label" parent="Down"]
-layout_mode = 0
-offset_left = 395.0
-offset_top = 398.0
-offset_right = 594.0
-offset_bottom = 421.0
-text = "unlocked endings go here"
+[node name="ShowerOfEndings" parent="Down" instance=ExtResource("4_k883l")]
+layout_mode = 1
+offset_top = 35.0
 
 [node name="GoUp" type="Button" parent="."]
 offset_left = 615.0
@@ -193,10 +190,10 @@ offset_bottom = -382.0
 text = "center"
 
 [node name="GoBack2" type="Button" parent="."]
-offset_left = 612.0
-offset_top = 900.0
-offset_right = 670.0
-offset_bottom = 931.0
+offset_left = 1182.0
+offset_top = 732.0
+offset_right = 1240.0
+offset_bottom = 763.0
 text = "center"
 
 [node name="Intro" parent="." instance=ExtResource("2_4avr2")]

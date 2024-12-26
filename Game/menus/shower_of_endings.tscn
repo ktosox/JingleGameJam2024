@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmi14s420manb"]
+
+[ext_resource type="PackedScene" uid="uid://dxwsaudh6yvac" path="res://menus/ending_card.tscn" id="1_2evee"]
+
+[node name="ShowerOfEndings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Layout" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+
+[node name="ColorRect" parent="Layout" instance=ExtResource("1_2evee")]
+layout_mode = 2
+
+[node name="ColorRect2" parent="Layout" instance=ExtResource("1_2evee")]
+layout_mode = 2
+
+[node name="ColorRect3" parent="Layout" instance=ExtResource("1_2evee")]
+layout_mode = 2
+
+[node name="ColorRect4" parent="Layout" instance=ExtResource("1_2evee")]
+layout_mode = 2
+
+[node name="ColorRect5" parent="Layout" instance=ExtResource("1_2evee")]
+layout_mode = 2
+
+[node name="ColorRect6" parent="Layout" instance=ExtResource("1_2evee")]
+layout_mode = 2
